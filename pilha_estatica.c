@@ -78,20 +78,19 @@ TipoItem buscaPorNome(TipoPilha *aux, char nome[51]){
     
     TipoItem item;
     
-    item.chave = -1;
-    strcpy(item.nome, "nao encontrado");
-    
     while(!pilhaVazia(aux)){
-        
-        item = pop(aux);
         
         if(strcmp(item.nome, nome) == 0){
             return item;
+        } else {
+            item = pop(aux);
+            if(pilhaVazia(aux)){
+                item.chave = -1;
+                strcpy(item.nome, "nao encontrado");
+                return item;
+            }
         }
     }
-    
-    
-    return item;
 }
 
 
@@ -124,7 +123,7 @@ int main() {
    aux = pilha;
    //buscando por nome informado anteriormente
    busca = buscaPorNome(&aux, nome);
-   printf("\n%d %s\n\n", busca.chave, busca.nome);
+   printf("\nvalor da busca: %d %s\n\n", busca.chave, busca.nome);
    
    
    //desempilhando
@@ -135,4 +134,3 @@ int main() {
    
    return 0;
 }
-
