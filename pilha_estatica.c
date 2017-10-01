@@ -79,11 +79,11 @@ TipoItem buscaPorNome(TipoPilha *aux, char nome[51]){
     TipoItem item;
     
     while(!pilhaVazia(aux)){
-        
+
+        item = pop(aux);
         if(strcmp(item.nome, nome) == 0){
             return item;
         } else {
-            item = pop(aux);
             if(pilhaVazia(aux)){
                 item.chave = -1;
                 strcpy(item.nome, "nao encontrado");
