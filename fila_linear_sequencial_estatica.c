@@ -2,7 +2,7 @@
 #include<string.h>
 #define MAX 1000
 
-//implementçcao de fila linear serquncial com impressão da fila e busca por string;
+//implementçcao de fila linear serquencial com impressão da fila e busca por string;
 
 typedef struct _no{
     int chave;
